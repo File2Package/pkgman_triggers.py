@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pkgman_triggers_test"
+version = "0.1"
+description = "Just a test trigger"
+readme = "ReadMe.md"
+license = {text = "Unlicense"}
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Development Status :: 4 - Beta",
+	"Environment :: Other Environment",
+	"Intended Audience :: Developers",
+	"License :: Public Domain",
+	"Operating System :: OS Independent",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.4"
+
+[project.entry-points.pkgman_triggers]
+"pkgman_triggers1@{\"packages\": [\"libcli11-dev\"]}" = "pkgman_triggers_test:test_trigger"
+"pkgman_triggers2@{\"paths\": [\"/usr/local/lib/\"]}" = "pkgman_triggers_test:test_trigger"
+
+[tool.setuptools]
+zip-safe = true
+include-package-data = true
+py-modules = ["pkgman_triggers_test"]
